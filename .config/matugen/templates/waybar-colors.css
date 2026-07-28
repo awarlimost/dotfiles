@@ -1,0 +1,6 @@
+@define-color fg {{colors.on_background.default.hex}};
+@define-color fg_dim {{colors.outline.default.hex}};
+@define-color accent {{colors.primary.default.hex}};
+@define-color bg_pill {{colors.surface_container.default.hex}};
+@define-color secondary {{colors.secondary.default.hex}};
+@define-color tertiary {{colors.tertiary.default.hex}};

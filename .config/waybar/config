@@ -1,0 +1,80 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 0,
+    "modules-left": ["group/left"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "bluetooth", "pulseaudio", "battery", "tray", "group/power"],
+
+    "group/left": {
+        "orientation": "horizontal",
+        "modules": ["niri/workspaces"]
+    },
+
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "●",
+            "default": "○"
+        }
+    },
+
+    "clock": {
+        "format": "{:%H:%M}"
+    },
+
+    "network": {
+        "format-wifi": "󰤨",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "on-click": "nm-connection-editor"
+    },
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂱",
+        "format-off": "󰂲",
+        "on-click": "blueman-manager"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+        "on-click": "pavucontrol"
+    },
+    "battery": {
+        "format": "{icon}",
+        "format-charging": "󰂄",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "states": { "warning": 30, "critical": 15 }
+    },
+    "tray": { "spacing": 10, "icon-size": 18 },
+
+    "group/power": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "power-drawer"
+        },
+        "modules": ["custom/power", "custom/logout", "custom/reboot", "custom/shutdown"]
+    },
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false
+    },
+    "custom/logout": {
+        "format": "󰍃",
+        "on-click": "niri msg action quit",
+        "tooltip-format": "Log out"
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "on-click": "systemctl reboot",
+        "tooltip-format": "Restart"
+    },
+    "custom/shutdown": {
+        "format": "⏻",
+        "on-click": "systemctl poweroff",
+        "tooltip-format": "Shut down"
+    }
+}

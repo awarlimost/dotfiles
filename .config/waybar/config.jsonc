@@ -1,0 +1,125 @@
+{
+  "layer": "top",
+  "position": "left",
+  "width": 65,
+  "spacing": 0,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "margin-left": 0,
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "modules-left": [
+    "custom/cachyos",
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "custom/cava"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "network",
+    "pulseaudio",
+    "clock",
+    "tray",
+    "custom/separator",
+    "custom/logout",
+    "custom/shutdown"
+  ],
+  "custom/cachyos": {
+    "format": "",
+    "tooltip-format": "CachyOS (Arch Linux)\nClick: Launch Menu",
+    "on-click": "wofi --show drun --matching=snappy -i"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "tooltip": false,
+    "all-outputs": true,
+    "disable-scroll": false,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "format-icons": {
+      "1": "󰈹",
+      "2": "󰨞",
+      "3": "",
+      "4": "󱂬",
+      "5": "",
+      "6": "󰊴",
+      "7": "Ⅶ",
+      "8": "Ⅷ",
+      "9": "Ⅸ",
+      "10": "Ⅹ",
+      "default": ""
+    }
+  },
+  "custom/cava": {
+    "exec": "bash ~/.config/waybar/scripts/cava.sh",
+    "format": "{}",
+    "rotate": 270,
+    "tooltip": false
+  },
+  "cpu": {
+    "format": "󰍛\n{usage:<3}%",
+    "tooltip": true,
+    "tooltip-format": "CPU Usage: {usage}%\nFrequency: {frequency}GHz",
+    "interval": 2
+  },
+  "memory": {
+    "format": "󰘚\n{used:<4.1f}G",
+    "tooltip": true,
+    "tooltip-format": "Memory: {used:0.1f}G / {total:0.1f}G",
+    "interval": 5
+  },
+  "network": {
+    "format-wifi": "󰖩",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "WiFi: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}",
+    "tooltip-format-ethernet": "Ethernet: {ifname}\nIP: {ipaddr}",
+    "interval": 3
+  },
+  "pulseaudio": {
+    "format": "󰕾\n{volume:<3}%",
+    "format-muted": "󰝟",
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip-format": "Volume: {volume}%"
+  },
+  "clock": {
+    "format": "{:%H\n%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%d\n%m}",
+    "interval": 60
+  },
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 4,
+    "icon-size": 18
+  },
+  "custom/separator": {
+    "format": "──",
+    "tooltip": false
+  },
+  "custom/logout": {
+    "on-click": "hyprctl dispatch exit",
+    "format": "󰍃",
+    "tooltip": true,
+    "tooltip-format": "Logout"
+  },
+  "custom/shutdown": {
+    "on-click": "systemctl poweroff",
+    "on-click-right": "systemctl reboot",
+    "on-click-middle": "systemctl suspend",
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "Power Menu\nLeft: Shutdown\nRight: Reboot\nMiddle: Suspend"
+  }
+}
